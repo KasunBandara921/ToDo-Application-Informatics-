@@ -2,143 +2,309 @@
 
 Full-stack ToDo application built with Spring Boot (Backend) and Next.js (Frontend).
 
-## Team Members
-- Ridmi - Integration
-- [Your name] - Backend Developer
-- Ruhini - Backend Developer
-- Kasun - Frontend Developer
-- Indu - Frontend Developer
+---
 
-## Tech Stack
+## 👥 Team Members
+
+| Name | Role | Responsibilities |
+|------|------|------------------|
+| Ridmi |  Integration | Repository setup, API docs, Integration testing |
+| Rashmi | Backend Developer | Database design, API implementation |
+| Ruhini | Backend Developer | Authentication, CRUD endpoints |
+| Kasun | Frontend Developer | UI components, Todo management |
+| Indu | Frontend Developer | Authentication UI, API integration |
+
+---
+
+## 🛠️ Tech Stack
 
 ### Backend
-- Java 17+
-- Spring Boot 3.x
-- PostgreSQL
-- JWT Authentication
+- **Language:** Java 17+
+- **Framework:** Spring Boot 3.x
+- **Database:** PostgreSQL
+- **Authentication:** JWT (JSON Web Tokens)
+- **Build Tool:** Maven
 
 ### Frontend
-- Next.js 14
-- React 18
-- TypeScript
-- Tailwind CSS
+- **Framework:** Next.js 14
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **State Management:** React Hooks
+- **HTTP Client:** Axios
 
-## Project Structure
+---
+
+## 📚 Documentation
+
+- 🚀 **[Setup Guide](./SETUP.md)** - Complete development environment setup instructions
+- 🔌 **[API Documentation](./API_DOCUMENTATION.md)** - API endpoints and contract reference ⏳ *Under Review*
+- 📮 **Postman Collection** - API testing collection *(Coming Soon)*
+
+---
+
+## 📁 Project Structure
+
 ```
 todo-app/
-├── backend/          # Spring Boot application
-├── frontend/         # Next.js application
-└── README.md
-```
-
-## Getting Started
-Setup instructions coming soon...
-
-## Development Workflow
-- `main` - Production-ready code
-- `develop` - Development branch
-- `backend-dev` - Backend features
-- `frontend-dev` - Frontend features
-```
-
----
-
-### **Step 4: Create Branches (5 minutes)**
-
-1. In your repository, click **"main"** dropdown (top left)
-2. Type `develop` → Click **"Create branch: develop"**
-3. Repeat for:
-   - `backend-dev`
-   - `frontend-dev`
-
----
-
-### **Step 5: Add Branch Protection (Optional but Recommended)**
-
-1. Go to **Settings** → **Branches**
-2. Click **"Add branch protection rule"**
-3. Branch name pattern: `main`
-4. Enable:
-   - ✅ Require pull request reviews before merging
-   - ✅ Require approvals: 1
-5. Click **"Create"**
-
----
-
-### **Step 6: Invite Team Members (5 minutes)**
-
-1. Go to **Settings** → **Collaborators**
-2. Click **"Add people"**
-3. Enter each team member's GitHub username or email
-4. Set their role as **"Write"** (they can push code)
-5. Send invitations to all 4 team members
-
----
-
-### **Step 7: Add Better .gitignore Files**
-
-**For Backend folder:**
-Create `backend/.gitignore`:
-```
-# Spring Boot
-target/
-*.jar
-*.war
-*.class
-.mvn/
-mvnw
-mvnw.cmd
-
-# IDE
-.idea/
-*.iml
-.vscode/
-*.swp
-
-# Environment
-.env
-application-local.properties
-```
-
-**For Frontend folder:**
-Create `frontend/.gitignore`:
-```
-# Next.js
-.next/
-out/
-node_modules/
-
-# Environment
-.env*.local
-
-# IDE
-.idea/
-.vscode/
-*.swp
-
-# Dependencies
-package-lock.json
-yarn.lock
+├── backend/              # Spring Boot application
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/    # Java source code
+│   │   │   └── resources/
+│   │   └── test/        # Unit tests
+│   ├── pom.xml          # Maven dependencies
+│   └── README.md
+│
+├── frontend/            # Next.js application
+│   ├── src/
+│   │   ├── app/         # Next.js pages
+│   │   ├── components/  # React components
+│   │   └── lib/         # Utilities
+│   ├── public/          # Static assets
+│   ├── package.json     # NPM dependencies
+│   └── README.md
+│
+├── SETUP.md             # Setup instructions
+├── API_DOCUMENTATION.md # API reference
+└── README.md            # This file
 ```
 
 ---
 
-### **Step 8: Share with Team (5 minutes)**
+## 🚀 Quick Start
 
-1. Copy your repository URL (e.g., `https://github.com/YOUR-USERNAME/todo-app`)
-2. Post in your team group chat or ClickUp:
+### Prerequisites
+Before you begin, make sure you have:
+- Java 17+ installed
+- Maven installed
+- Node.js 18+ installed
+- PostgreSQL installed and running
+
+📖 **[Read the complete setup guide](./SETUP.md)** for detailed instructions.
+
+### Backend Setup
+```bash
+# Navigate to backend folder
+cd backend
+
+# Install dependencies
+mvn clean install
+
+# Configure database (edit application.properties)
+# Then run the application
+mvn spring-boot:run
 ```
-✅ Repository Setup Complete!
+Backend will run at: `http://localhost:8080`
 
-📦 Repository: [paste URL here]
+### Frontend Setup
+```bash
+# Navigate to frontend folder
+cd frontend
 
-Please:
-1. Accept the GitHub invitation (check your email)
-2. Clone the repository: git clone [URL]
-3. Let me know once you have access
+# Install dependencies
+npm install
 
-Branches created:
-- main (protected)
-- develop (main development)
-- backend-dev (for backend work)
-- frontend-dev (for frontend work)
+# Create .env.local file with:
+# NEXT_PUBLIC_API_URL=http://localhost:8080/api
+
+# Run development server
+npm run dev
+```
+Frontend will run at: `http://localhost:3000`
+
+---
+
+## 🔄 Development Workflow
+
+### Branch Strategy
+- `main` - Production-ready code (protected)
+- `develop` - Main development branch
+- `backend-dev` - Backend feature development
+- `frontend-dev` - Frontend feature development
+- `feature/feature-name` - Individual feature branches
+
+### Workflow Steps
+1. **Pull latest changes**
+   ```bash
+   git checkout develop
+   git pull origin develop
+   ```
+
+2. **Create feature branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **Make your changes**
+   ```bash
+   git add .
+   git commit -m "Description of changes"
+   ```
+
+4. **Push to GitHub**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+5. **Create Pull Request**
+   - Go to GitHub
+   - Create PR from your branch to `develop`
+   - Request review from team members
+   - Wait for approval
+
+6. **Merge after approval**
+   - PR must be approved by at least 1 team member
+   - Resolve any merge conflicts
+   - Merge to `develop`
+
+---
+
+## 📊 Project Status
+
+### Completed ✅
+- [x] Repository setup and structure
+- [x] Development environment setup guide
+- [x] Team member invitations
+- [x] Branch structure created
+- [x] Git workflow established
+
+### In Progress 🔄
+- [ ] API documentation (Under Review)
+- [ ] Database schema design
+- [ ] Spring Boot project initialization
+- [ ] Next.js project initialization
+
+### Upcoming 📅
+- [ ] Backend: Authentication implementation
+- [ ] Backend: Todo CRUD endpoints
+- [ ] Frontend: Login/Register pages
+- [ ] Frontend: Todo management UI
+- [ ] Integration testing
+- [ ] Deployment
+
+---
+
+## 🎯 Sprint 1 Goals (3 Weeks)
+
+### Week 1: Foundation
+- ✅ Project setup and planning
+- 🔄 Backend: Basic Spring Boot app + authentication
+- 🔄 Frontend: Next.js setup + authentication UI
+
+### Week 2: Core Features
+- Backend: Complete Todo CRUD API
+- Frontend: Todo list, add, edit, delete UI
+- API integration
+
+### Week 3: Integration & Polish
+- Full integration testing
+- Bug fixes
+- Documentation
+- Deployment preparation
+
+---
+
+## 🧪 Testing
+
+### Backend Testing
+```bash
+cd backend
+mvn test
+```
+
+### Frontend Testing
+```bash
+cd frontend
+npm test
+```
+
+### API Testing
+- Use Postman collection (coming soon)
+- Or use Thunder Client in VS Code
+
+---
+
+## 📝 Coding Standards
+
+### Backend (Java/Spring Boot)
+- Follow Java naming conventions (camelCase for methods, PascalCase for classes)
+- Use meaningful variable names
+- Add comments for complex logic
+- Write unit tests for services
+- Use DTOs for API requests/responses
+
+### Frontend (TypeScript/React)
+- Use TypeScript for type safety
+- Follow React best practices (hooks, functional components)
+- Use Tailwind utility classes for styling
+- Keep components small and reusable
+- Handle loading and error states
+
+### Git Commits
+- Use clear, descriptive commit messages
+- Format: `type: description`
+  - `feat:` new feature
+  - `fix:` bug fix
+  - `docs:` documentation changes
+  - `style:` formatting changes
+  - `refactor:` code refactoring
+  - `test:` adding tests
+
+Examples:
+```
+feat: add user registration endpoint
+fix: resolve null pointer in todo controller
+docs: update API documentation with new endpoints
+```
+
+---
+
+## 🐛 Issue Reporting
+
+Found a bug? Have a suggestion?
+1. Check if the issue already exists
+2. Create a new issue on GitHub
+3. Use labels: `bug`, `enhancement`, `question`
+4. Provide clear description and steps to reproduce
+
+---
+
+## 📞 Communication
+
+### Daily Updates
+- Post daily progress in team chat
+- Update ClickUp task status
+- Raise blockers immediately
+
+### Questions & Help
+- Check documentation first
+- Ask in team chat
+- Tag relevant team members
+- Schedule pair programming if needed
+
+---
+
+## 🔗 Useful Links
+
+- **ClickUp Board:** https://app.clickup.com/90181843508/v/l/t/90181843508
+- **GitHub Repository:** https://github.com/KasunBandara921/ToDo-Application-Informatics-/edit/main/readme.md
+- **API Documentation:** [API_DOCUMENTATION.md](./API_DOCUMENTATION.md)
+- **Setup Guide:** [SETUP.md](./SETUP.md)
+
+---
+
+## 📄 License
+
+This project is for educational purposes as part of [Your Course/Institution Name].
+
+---
+
+## 🙏 Acknowledgments
+
+Thanks to all team members for their contributions to this project!
+
+---
+
+**Last Updated:** November 08, 2025  
+**Project Start Date:** November 08, 2025  
+**Expected Completion:** November 29, 2025 (3 weeks)
