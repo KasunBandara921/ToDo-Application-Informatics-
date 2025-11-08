@@ -60,3 +60,33 @@ public class SecurityConfig {
         return source;
     }
 }
+
+// Update: backend/src/main/java/com/todo/config/SecurityConfig.java
+// Add this to your existing SecurityConfig class
+
+@Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor  // Add this
+public class SecurityConfig {
+    
+    private final JwtAuthenticationFilter jwtAuthFilter;  // Add this
+    
+    // ... existing beans ...
+    
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf(csrf -> csrf.disable())
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+            .sessionManagement(session -> 
+                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/auth/**").permitAll()
+                .anyRequest().authenticated()
+            )
+            .addFilterBefore(jwtAuthFilter, 
+                UsernamePasswordAuthenticationFilter.class);  // Add this line
+        
+        return http.build();
+    }
+}
