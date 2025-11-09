@@ -385,7 +385,7 @@ DB_PASSWORD=<strong-database-password>
 
 **For Security Concerns:**
 - Security Review: @ridmi
-- Report privately via: ridmi@example.com
+- 
 
 **Documentation Updates:**
 - Create PR to update this API documentation
