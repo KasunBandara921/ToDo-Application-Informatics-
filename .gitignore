@@ -1,0 +1,8 @@
+# Environment files with secrets
+.env
+application-dev.properties
+application-prod.properties
+
+# Logs
+*.log
+logs/
