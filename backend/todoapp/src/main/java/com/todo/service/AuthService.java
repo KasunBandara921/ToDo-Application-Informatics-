@@ -54,6 +54,6 @@ public class AuthService {
                 "temporary-token-" + user.getUsername(),
                 user.getUsername(),
                 user.getEmail()
-        );
-    }
+        );
+    }
 }
