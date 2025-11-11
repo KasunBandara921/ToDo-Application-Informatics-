@@ -1,4 +1,3 @@
-// File: backend/src/main/java/com/todo/service/CustomUserDetailsService.java
 package com.todo.service;
 
 import com.todo.entity.User;
@@ -20,14 +19,21 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) 
             throws UsernameNotFoundException {
+        
+        // Find user in database
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException(
                     "User not found: " + username));
         
+        // Return Spring Security User object
         return new org.springframework.security.core.userdetails.User(
             user.getUsername(),
             user.getPassword(),
-            new ArrayList<>()
+            true,  // enabled
+            true,  // accountNonExpired
+            true,  // credentialsNonExpired
+            true,  // accountNonLocked
+            new ArrayList<>()  // authorities (empty for now)
         );
     }
 }

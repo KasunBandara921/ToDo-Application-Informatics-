@@ -3,13 +3,14 @@ package com.todo.controller;
 import com.todo.dto.AuthResponse;
 import com.todo.dto.LoginRequest;
 import com.todo.dto.RegisterRequest;
-import com.todo.entity.User;
 import com.todo.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.todo.entity.User;
+import org.springframework.http.HttpStatus;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,9 +19,9 @@ import java.util.Map;
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthController {
-
+    
     private final AuthService authService;
-
+    
     @GetMapping("/health")
     public ResponseEntity<Map<String, String>> health() {
         Map<String, String> response = new HashMap<>();

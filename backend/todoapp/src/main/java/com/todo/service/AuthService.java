@@ -17,7 +17,7 @@ public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public User register(RegisterRequest request) {
+    public AuthResponse register(RegisterRequest request) {
         // Check if username already exists
         if (userRepository.existsByUsername(request.getUsername())) {
             throw new UserAlreadyExistsException(
@@ -36,7 +36,13 @@ public class AuthService {
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        return userRepository.save(user);
+        userRepository.save(user);
+
+        // Generate JWT token (temporary placeholder)
+        String token = "temporary-token-" + user.getUsername();
+
+        // Return AuthResponse
+        return new AuthResponse(token, user.getUsername(), user.getEmail());
     }
 
     public AuthResponse login(LoginRequest request) {
@@ -49,11 +55,9 @@ public class AuthService {
             throw new RuntimeException("Invalid username or password");
         }
 
-        // Return response with temporary token
-        return new AuthResponse(
-                "temporary-token-" + user.getUsername(),
-                user.getUsername(),
-                user.getEmail()
-        );
+        // Generate JWT token (temporary placeholder)
+        String token = "temporary-token-" + user.getUsername();
+
+        return new AuthResponse(token, user.getUsername(), user.getEmail());
     }
 }
