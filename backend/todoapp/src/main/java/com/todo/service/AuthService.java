@@ -38,7 +38,7 @@ public class AuthService {
 
         userRepository.save(user);
 
-        // Generate JWT token (replace with actual JWT later)
+        // Generate JWT token (temporary placeholder)
         String token = "temporary-token-" + user.getUsername();
 
         // Return AuthResponse
@@ -55,7 +55,7 @@ public class AuthService {
             throw new RuntimeException("Invalid username or password");
         }
 
-        // Generate JWT token (replace with actual JWT later)
+        // Generate JWT token (temporary placeholder)
         String token = "temporary-token-" + user.getUsername();
 
         return new AuthResponse(token, user.getUsername(), user.getEmail());

@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "axios": "^1.13.2",
+    "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.553.0",
+    "react-hook-form": "^7.66.0",
+    "zod": "^4.1.12"
+  }
+}
